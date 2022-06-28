@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.menu.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_pizzaFragment"
+            app:destination="@id/pizzaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_dessertFragment"
+            app:destination="@id/dessertFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_favouriteFragment"
+            app:destination="@id/favouriteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_employeeFragment"
+            app:destination="@id/employeeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pizzaFragment"
+        android:name="com.example.menu.fragments.PizzaFragment"
+        android:label="Pizzas" >
+        <action
+            android:id="@+id/action_pizzaFragment_to_singlePizzaFragment"
+            app:destination="@id/singlePizzaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dessertFragment"
+        android:name="com.example.menu.fragments.DessertFragment"
+        android:label="Desserts"
+        tools:layout="@layout/fragment_dessert" >
+        <action
+            android:id="@+id/action_dessertFragment_to_singleDessertFragment"
+            app:destination="@id/singleDessertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singlePizzaFragment"
+        android:name="com.example.menu.fragments.SinglePizzaFragment"
+        android:label="Pizza"
+        tools:layout="@layout/fragment_single_pizza" >
+        <argument
+            android:name="trenutnaPizza"
+            app:argType="com.example.menu.models.SendPizza" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleDessertFragment"
+        android:name="com.example.menu.fragments.SingleDessertFragment"
+        android:label="Dessert"
+        tools:layout="@layout/fragment_single_dessert" >
+        <argument
+            android:name="trenutniDessert"
+            app:argType="com.example.menu.models.DessertItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.example.menu.fragments.RecipeFragment"
+        android:label="Recipes"
+        tools:layout="@layout/fragment_recipe" >
+        <action
+            android:id="@+id/action_recipeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_recipeFragment_to_addRecipeFragment"
+            app:destination="@id/addRecipeFragment" />
+        <action
+            android:id="@+id/action_recipeFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="com.example.menu.fragments.AddRecipeFragment"
+        android:label="Add new recipe"
+        tools:layout="@layout/fragment_add_recipe" >
+        <action
+            android:id="@+id/action_addRecipeFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment"
+            app:popUpTo="@id/recipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.menu.fragments.UpdateFragment"
+        android:label="Update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment"
+            app:popUpTo="@id/recipeFragment" />
+        <argument
+            android:name="currentRecipe"
+            app:argType="com.example.menu.models.Recipe" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.example.menu.fragments.FavouriteFragment"
+        android:label="Favourites"
+        tools:layout="@layout/fragment_favourite" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeFragment"
+        android:name="com.example.menu.fragments.EmployeeFragment"
+        android:label="Employees"
+        tools:layout="@layout/fragment_employee" >
+        <action
+            android:id="@+id/action_employeeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
